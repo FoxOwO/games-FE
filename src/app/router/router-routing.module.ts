@@ -7,15 +7,13 @@ import {GamesGuard} from '../services/games-guard.service';
 import {CategoryDetailComponent} from '../component/category-detail/category-detail.component';
 import {CategoryDetailResolverService} from '../resolver/category-detail-resolver.service';
 import {CategoryAddComponent} from '../component/category-add/category-add.component';
-import {HomeComponent} from '../component/home/home.component';
 import {GameListComponent} from '../component/game-list/game-list.component';
 import {CategoryHomeComponent} from '../component/category-home/category-home.component';
 import {GameAddComponent} from '../component/game-add/game-add.component';
 import {GameHomeComponent} from '../component/game-home/game-home.component';
-import {MainPageComponent} from '../component/main-page/main-page.component';
 
 const routes: Routes = [
-  {path: '', component: MainPageComponent},
+  {path: '', component: GameListComponent},
   {path: 'category', component: CategoryHomeComponent},
   {path: 'game', component: GameHomeComponent},
   {path: 'category/list', component: CategoryListComponent},

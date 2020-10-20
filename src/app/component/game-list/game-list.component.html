@@ -1,0 +1,53 @@
+<h2>Games list</h2>
+<table mat-table [dataSource]="games" class="mat-elevation-z7 table-container">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id</th>
+    <td mat-cell *matCellDef="let game"> {{game.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="game_name">
+    <th mat-header-cell *matHeaderCellDef>  name</th>
+    <td mat-cell *matCellDef="let game"> {{game.game_name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="category_id">
+    <th mat-header-cell *matHeaderCellDef> category id</th>
+    <td mat-cell *matCellDef="let game"> {{game.category_id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="author">
+    <th mat-header-cell *matHeaderCellDef>  author</th>
+    <td mat-cell *matCellDef="let game"> {{game.author}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="play_duration">
+    <th mat-header-cell *matHeaderCellDef>  duration</th>
+    <td mat-cell *matCellDef="let game"> {{game.play_duration}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef>  price</th>
+    <td mat-cell *matCellDef="let game"> {{game.price}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="image">
+    <th mat-header-cell *matHeaderCellDef>  image</th>
+    <td mat-cell *matCellDef="let game"> {{game.image}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions</th>
+    <td mat-cell *matCellDef="let game">
+      <button type="button" (click)="delete(game.id)" mat-mini-fab color="warn">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <!--<button type="button" [routerLink]="['game', game.id]" mat-mini-fab color="primary">
+        <mat-icon>info</mat-icon>
+      </button>-->
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

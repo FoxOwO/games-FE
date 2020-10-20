@@ -1,0 +1,35 @@
+<h2>Add game</h2>
+<form class="form-container" [formGroup]="gameForm" (ngSubmit)="save()" novalidate>
+
+  <div *ngFor="let form_elem of formTemplate">
+    <div [ngSwitch]="form_elem.type">
+      <div *ngSwitchCase="'textBox'">
+        <label>{{form_elem.label}}</label>
+        <input type="text" formControlName="{{form_elem.label}}"/>
+      </div>
+      <div *ngSwitchCase="'number'">
+        <label>{{form_elem.label}}</label>
+        <input type="number" formControlName="{{form_elem.label}}"/>
+      </div>
+      <div *ngSwitchCase="'select'">
+        <select formControlName="{{form_elem.label}}">
+          <option *ngFor="let opt of form_elem.options">
+            {{opt}}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" mat-button color="warn" (click)="onClick()">
+    <mat-icon>file_upload</mat-icon>
+    Upload image
+  </button>
+
+  <button type="submit" mat-raised-button color="primary">Save</button>
+</form>
+<input type="file" #fileUpload id="fileUpload" name="fileUpload" multiple="multiple" accept="image/*"
+       style="display:none;"/>
+<div *ngIf="showDetails">
+  <app-animal-detail [id]="animalId" (deleteEvent)="deleteGame($event)"></app-animal-detail>
+</div>

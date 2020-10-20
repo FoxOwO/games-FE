@@ -1,0 +1,13 @@
+<form class="form-container" #loginForm="ngForm" (ngSubmit)="login(loginForm)" novalidate>
+  <mat-form-field appearance="fill">
+    <mat-label>User:</mat-label>
+    <input matInput name="username" type="text" ngModel>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Password:</mat-label>
+    <input matInput name="password" type="password" ngModel>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="primary">Login</button>
+</form>

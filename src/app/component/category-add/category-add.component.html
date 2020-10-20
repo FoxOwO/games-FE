@@ -1,0 +1,14 @@
+<h2>Add Category</h2>
+<form class="form-container" [formGroup]="categoryForm" (ngSubmit)="save()" novalidate>
+  <mat-form-field appearance="fill">
+    <mat-label>Name:</mat-label>
+    <input matInput category_name="name" type="text" formControlName="category_name">
+  </mat-form-field>
+  <p *ngIf="categoryForm.controls.category_name?.errors" class="mat-error">{{categoryForm.controls.category_name.errors.errorMsg }}</p>
+
+  <button type="submit" mat-raised-button color="primary">Save</button>
+</form>
+
+<div *ngIf="showDetails">
+  <app-category-detail [id]="category_id" (deleteEvent)="deleteCategory($event)"></app-category-detail>
+</div>

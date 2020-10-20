@@ -1,29 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['category']">category</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['game']">game</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['admin']">Admin</a>
-      </li>
-    </ul>
-    <span class="navbar-text" *ngIf="loginService.authenticated">User logged in, welcome {{loginService.userName}}</span>
-    <div ngSwitch="{{loginService.authenticated}}">
-      <button *ngSwitchCase="'true'" mat-raised-button color="primary" (click)="logout()"
-              style="margin-left: 15px;">
-        Logout
-      </button>
-      <button *ngSwitchCase="'false'" mat-raised-button color="primary" [routerLink]="['login']"
-              style="margin-left: 15px;">
-        Login
-      </button>
-    </div>
-  </div>
-</nav>
+
 <div class="flex-container">
-  <router-outlet></router-outlet>
+  <app-nav-bar></app-nav-bar>
+  <app-main-page></app-main-page>
 </div>

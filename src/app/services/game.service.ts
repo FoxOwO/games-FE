@@ -14,18 +14,17 @@ export class GameService {
   }
 
   getAll(): Promise<Game[]> {
-    return this.http.get<Game[]>(environment.backendUrl + '/game').toPromise();
+    return this.http.get<Game[]>('/game').toPromise();
   }
 
   delete(id: number): Observable<any> {
-    console.log("service deleting game with id: " + id);
-    return this.http.delete(environment.backendUrl + '/game/' + id);
+    return this.http.delete('/game/' + id);
   }
   findById(id: any): Observable<Game> {
-    return this.http.get<Game>(environment.backendUrl + '/game/' + id);
+    return this.http.get<Game>('/game/' + id);
   }
 
   save(game: Game): Observable<any> {
-    return this.http.post(environment.backendUrl + '/game', game);
+    return this.http.post('/game', game);
   }
 }

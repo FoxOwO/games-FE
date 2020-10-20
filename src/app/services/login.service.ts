@@ -22,10 +22,8 @@ export class LoginService {
     this.headers = new HttpHeaders(credentials ? {
       authorization: 'Basic ' + btoa(credentials.username + ':' + credentials.password)
     } : {});
-    console.log(this.headers);
-    console.log(credentials.username +" -- "+credentials.password);
 
-    return this.http.get<string>(environment.backendUrl + '/users', {headers: this.headers}).pipe(map(response => {
+    return this.http.get<string>('/users', {headers: this.headers}).pipe(map(response => {
       if (response['name']) {
         this.userName = response['name'];
         this.authenticated = true;
@@ -40,7 +38,7 @@ export class LoginService {
       this.authenticated = false;
       this.userName = '';
       this.headers = new HttpHeaders();
-      this.router.navigate(['/login']);
+      this.router.navigate(['login']);
     });
   }
 }

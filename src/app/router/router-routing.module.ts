@@ -12,9 +12,10 @@ import {GameListComponent} from '../component/game-list/game-list.component';
 import {CategoryHomeComponent} from '../component/category-home/category-home.component';
 import {GameAddComponent} from '../component/game-add/game-add.component';
 import {GameHomeComponent} from '../component/game-home/game-home.component';
+import {MainPageComponent} from '../component/main-page/main-page.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', component: MainPageComponent},
   {path: 'category', component: CategoryHomeComponent},
   {path: 'game', component: GameHomeComponent},
   {path: 'category/list', component: CategoryListComponent},

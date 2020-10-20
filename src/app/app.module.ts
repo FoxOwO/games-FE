@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {RouterRoutingModule} from './router/router-routing.module';
 import { HomeComponent } from './component/home/home.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -23,6 +23,9 @@ import { CategoryHomeComponent } from './component/category-home/category-home.c
 import { GameListComponent } from './component/game-list/game-list.component';
 import { GameAddComponent } from './component/game-add/game-add.component';
 import { GameHomeComponent } from './component/game-home/game-home.component';
+import {HttpInterceptor} from './interceptor/HttpInterceptor';
+import { NavBarComponent } from './component/nav-bar/nav-bar.component';
+import { MainPageComponent } from './component/main-page/main-page.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ import { GameHomeComponent } from './component/game-home/game-home.component';
     CategoryHomeComponent,
     GameListComponent,
     GameAddComponent,
-    GameHomeComponent],
+    GameHomeComponent,
+    NavBarComponent,
+    MainPageComponent],
   imports: [
     HttpClientModule,
     RouterRoutingModule,
@@ -52,7 +57,7 @@ import { GameHomeComponent } from './component/game-home/game-home.component';
     BrowserAnimationsModule,
     ReactiveFormsModule
   ],
-  providers: [CategoryService],
+  providers: [CategoryService, {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptor, multi: true}],
   bootstrap: [HomeComponent]
 })
 export class AppModule { }

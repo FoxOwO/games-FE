@@ -15,18 +15,17 @@ export class CategoryService {
   }
 
   getAll(): Promise<Category[]> {
-    return this.http.get<Category[]>(environment.backendUrl + '/category').toPromise();
+    return this.http.get<Category[]>('/category').toPromise();
   }
 
   delete(id: number): Observable<any> {
-    console.log("service deleting category with id: " + id);
-    return this.http.delete(environment.backendUrl + '/category/' + id);
+    return this.http.delete('/category/' + id);
   }
   findById(id: any): Observable<Category> {
-    return this.http.get<Category>(environment.backendUrl + '/category/' + id);
+    return this.http.get<Category>('/category/' + id);
   }
 
   save(category: Category): Observable<any> {
-    return this.http.post(environment.backendUrl + '/category', category);
+    return this.http.post('/category', category);
   }
 }

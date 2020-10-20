@@ -11,10 +11,5 @@ import {LoginService} from '../../services/login.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent  {
-  constructor(public loginService: LoginService){
-  }
-
-  logout(): void {
-    this.loginService.logout();
-  }
+  title = "Games";
 }
